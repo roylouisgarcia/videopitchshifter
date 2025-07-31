@@ -10,6 +10,8 @@ A user-friendly GUI application that uses FFMPEG to adjust the pitch of audio in
 
 ## Features
 
+![](images\summary.png)
+
 - **Easy-to-use GUI**: Intuitive interface built with tkinter
 - **Flexible pitch adjustment**: Adjust pitch from -20 to +20 semitones
 - **Preset buttons**: Quick access to common adjustments (-1, 0, +1 semitones)
@@ -29,10 +31,14 @@ This application requires FFMPEG to be installed and accessible from the command
 
 #### Windows:
 1. Download FFMPEG from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
-2. Extract the files to a folder (e.g., `C:\ffmpeg`)
+2. Extract the files to a folder (e.g., `D:\NostraProgramFiles\ffmpeg\bin\`)
+
+   ![](images\path1.png)
 3. Add the `bin` folder to your system PATH:
    - Open System Properties → Advanced → Environment Variables
-   - Edit the `Path` variable and add `C:\ffmpeg\bin`
+   - Edit the `Path` variable and add `D:\NostraProgramFiles\ffmpeg\bin\`
+     - ![Path](images\path2.png)
+     - ![](images\path3.png)
 4. Verify installation by opening Command Prompt and running: `ffmpeg -version`
 
 #### Mac/Linux:
