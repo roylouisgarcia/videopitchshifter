@@ -10,8 +10,6 @@ A user-friendly GUI application that uses FFMPEG to adjust the pitch of audio in
 
 ## Features
 
-![](https://github.com/roylouisgarcia/videopitchshifter/blob/main/images/summary.png)
-
 - **Easy-to-use GUI**: Intuitive interface built with tkinter
 - **Flexible pitch adjustment**: Adjust pitch from -20 to +20 semitones
 - **Preset buttons**: Quick access to common adjustments (-1, 0, +1 semitones)
