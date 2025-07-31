@@ -1,0 +1,17 @@
+2 - Want to delete the last N seconds of a video and keep the rest. (Manually enter duration)
+
+
+ffmpeg -ss 00:00:00 -to 01:32:00 -i input.mp4 -c copy output.mp4
+
+
+Change from mp4 to mov
+
+ffmpeg -i input_file.mp4 -f mov output_file.mov
+
+Extracting the sounds (mp3) from video (mkv):
+
+ffmpeg -i video.mkv -map 0:a:0 -b:a 320k sound.mp3
+
+Combine back audio to original video (replacing original audio)
+
+ffmpeg —i video.mkv —i lowered_sound.wav —c:v copy —c:a aac —map O:v:O —map 1:a:O video_lower.mp4

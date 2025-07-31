@@ -1,0 +1,156 @@
+# Video Pitch Adjuster - Git Ignore File
+# Excludes video, audio, and other unnecessary files from version control
+
+# Video Files
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.m4v
+*.3gp
+*.3g2
+*.mpg
+*.mpeg
+*.m2v
+*.m4v
+*.svi
+*.3gpp
+*.3gpp2
+*.mxf
+*.roq
+*.nsv
+*.f4v
+*.f4p
+*.f4a
+*.f4b
+
+# Audio Files
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+*.wma
+*.m4a
+*.opus
+*.amr
+*.awb
+*.au
+*.ra
+*.rm
+*.3ga
+*.ac3
+*.aif
+*.aiff
+*.caf
+*.dts
+*.mmf
+*.mpc
+*.tta
+*.wv
+*.xa
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log Files
+*.log
+logs/
+
+# Output and Test Files
+output/
+temp/
+tmp/
+test_output/
+processed_videos/
+
+# FFmpeg Output
+ffmpeg*.log
+*.yuv
+
+# Application Specific
+# Exclude any generated configuration files with sensitive data
+user_config.ini
+local_settings.ini
+
+# Keep screenshots and documentation images
+!images/
+!images/*.png
+!images/*.jpg
+!images/*.jpeg
+!images/*.gif
+
+# Large test files or sample videos
+samples/
+test_videos/
+demo_videos/
+
+# Backup files created by the application
+*_backup.*
+*_original.*
+
+# Any files ending with _temp or _tmp
+*_temp.*
+*_tmp.*
