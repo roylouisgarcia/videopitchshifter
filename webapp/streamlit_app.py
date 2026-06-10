@@ -124,8 +124,8 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("🎵 Video Pitch Adjuster")
-st.caption("Adjust audio pitch in video files while preserving video sync and duration.")
+st.title("🎵 Nostra - Video Pitch Shifter")
+st.caption("Use this app to adjust audio pitch in video files while preserving video sync and duration. - NostradmsX")
 
 if not check_ffmpeg():
     st.error(
