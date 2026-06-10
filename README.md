@@ -24,8 +24,12 @@ Adjust the audio pitch of video files without re-encoding the video. Available a
 ## Features
 
 - **Flexible pitch adjustment**: Adjust pitch from -20 to +20 semitones
-- **Preset buttons**: Quick access to common adjustments (-1, 0, +1 semitones)
-- **Real-time feedback**: Progress tracking and detailed processing logs
+- **Inline ±1 buttons**: Quick −/+ buttons sit flush on either side of the slider for fine-tuning
+- **Live pitch summary**: Describes the selected adjustment in plain English (e.g. "+5 semitones (higher pitch) · ≈ noticeably higher")
+- **Video preview**: See your uploaded video inline before processing
+- **Before/After comparison**: After processing, switch between Original and Result tabs to compare directly in the browser
+- **File size indicator**: Shows file size on upload with a warning for very large files
+- **Step-by-step processing status**: Live progress showing each ffmpeg step (extracting → adjusting → merging) as it runs
 - **Multiple video formats**: Supports MP4, MKV, AVI, MOV, WMV, FLV
 - **Auto-naming**: Automatically suggests output filenames based on pitch direction
   - Positive pitch: `filename_higher.ext`
@@ -114,17 +118,10 @@ Then open **http://localhost:8501** in your browser.
 
 **Using the web app:**
 
-1. **Upload Video** — Click the file uploader and select your video
-2. **Adjust Pitch** — Use the slider or the −1 / Reset / +1 buttons
-3. **Process Video** — Click the "Process Video" button
-4. **Download** — A download button appears when processing is complete
-
-#### Deploy to Streamlit Community Cloud (free hosting)
-
-1. Push this repository to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io) and click **New app**
-3. Point it at `webapp/streamlit_app.py`
-4. Streamlit Cloud will automatically install `ffmpeg` from `webapp/packages.txt`
+1. **Upload Video** — Click the file uploader and select your video; a preview appears on the right
+2. **Adjust Pitch** — Drag the slider or use the −/+ buttons on either side; the summary line updates as you go
+3. **Process Video** — Click the "Process Video" button and watch each step complete in real time
+4. **Compare & Download** — Switch between the Original and Result tabs to compare, then download
 
 ### Pitch Adjustment Guide
 
