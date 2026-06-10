@@ -1,18 +1,8 @@
 # Video Pitch Adjuster Requirements
-# This application uses only built-in Python libraries (tkinter)
-# External requirements:
-# - FFMPEG (must be installed separately and added to PATH)
+# External system requirement: FFMPEG must be installed and on your PATH
+# Verify with: ffmpeg -version
 
-# No Python packages need to be installed via pip
-# The application uses only:
-# - tkinter (built into Python)
-# - subprocess (built into Python)
-# - threading (built into Python)
-# - tempfile (built into Python)
-# - pathlib (built into Python)
-# - os (built into Python)
+# Desktop GUI (video_pitch_adjuster.py) uses only built-in Python libraries:
+# tkinter, subprocess, threading, tempfile, pathlib, os
 
-# To install FFMPEG:
-# 1. Download from https://ffmpeg.org/download.html
-# 2. Extract and add to your system PATH
-# 3. Verify installation by running: ffmpeg -version
+# Web app dependencies are listed in webapp/requirements.txt

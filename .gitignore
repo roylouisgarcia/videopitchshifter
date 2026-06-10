@@ -154,3 +154,19 @@ demo_videos/
 # Any files ending with _temp or _tmp
 *_temp.*
 *_tmp.*
+
+# Environment variables and secrets
+.env
+.env.*
+*.env
+!.env.example
+secrets.toml
+.streamlit/secrets.toml
+.streamlit/
+
+# AI coding assistant tooling (local only, not for version control)
+.claude/
+CLAUDE.md
+.cursor/
+.copilot/
+.aider*
