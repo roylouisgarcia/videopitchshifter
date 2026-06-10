@@ -1,6 +1,6 @@
-# Video Pitch Adjuster GUI
+# Video Pitch Adjuster
 
-A user-friendly GUI application that uses FFMPEG to adjust the pitch of audio in video files. This application extracts audio from video, adjusts the pitch by a specified amount, and merges the adjusted audio back with the original video.
+Adjust the audio pitch of video files without re-encoding the video. Available as a **desktop GUI app** and a **browser-based web app**.
 
 ## Screenshot
 
@@ -8,24 +8,37 @@ A user-friendly GUI application that uses FFMPEG to adjust the pitch of audio in
 
 *The intuitive interface allows easy video selection, pitch adjustment, and real-time processing feedback.*
 
+---
+
+## Versions
+
+| | Desktop GUI | Web App |
+|---|---|---|
+| **File** | `video_pitch_adjuster.py` | `webapp/streamlit_app.py` |
+| **Interface** | tkinter window | Browser (Streamlit) |
+| **Requirements** | Python + FFMPEG | Python + FFMPEG + `streamlit` |
+| **Output** | Saved to disk | Downloaded via browser |
+
+---
+
 ## Features
 
-- **Easy-to-use GUI**: Intuitive interface built with tkinter
 - **Flexible pitch adjustment**: Adjust pitch from -20 to +20 semitones
 - **Preset buttons**: Quick access to common adjustments (-1, 0, +1 semitones)
 - **Real-time feedback**: Progress tracking and detailed processing logs
 - **Multiple video formats**: Supports MP4, MKV, AVI, MOV, WMV, FLV
-- **Auto-naming**: Automatically suggests unique output filenames based on pitch direction
+- **Auto-naming**: Automatically suggests output filenames based on pitch direction
   - Positive pitch: `filename_higher.ext`
-  - Negative pitch: `filename_lower.ext` 
+  - Negative pitch: `filename_lower.ext`
   - Zero pitch: `filename_pitch_adjusted.ext`
-- **File protection**: Warns before overwriting existing files
-- **Background processing**: Non-blocking UI during video processing
+- **Smart pitch engine**: Uses rubberband filter for best quality, falls back to atempo method automatically
+
+---
 
 ## Prerequisites
 
 ### FFMPEG Installation
-This application requires FFMPEG to be installed and accessible from the command line.
+Both versions require FFMPEG to be installed and accessible from the command line.
 
 #### Windows:
 1. Download FFMPEG from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
@@ -58,37 +71,60 @@ sudo dnf install ffmpeg
 - Python 3.6 or higher
 - tkinter (usually included with Python)
 
-## Installation
+---
 
-1. Clone or download this repository
-2. No additional Python packages need to be installed (uses only built-in libraries)
-3. Ensure FFMPEG is installed and in your PATH
+## Installation & Usage
 
-## Usage
+### Option 1 — Desktop GUI (Offline)
 
-### Running the Application
+No extra packages needed beyond Python and FFMPEG.
+
 ```bash
+# Clone the repo
+git clone https://github.com/roylouisgarcia/videopitchshifter.git
+cd videopitchshifter
+
+# Run the desktop app
 python video_pitch_adjuster.py
 ```
 
-### Using the GUI
+**Using the desktop GUI:**
 
-1. **Select Input Video**: Click "Browse" next to "Input Video" and select your video file
-2. **Choose Output Location**: Click "Browse" next to "Output Video" or let it auto-generate a filename
-   - Auto-generated names change based on pitch direction:
-     - Positive pitch: `video_higher.mp4`
-     - Negative pitch: `video_lower.mp4`
-     - Zero pitch: `video_pitch_adjusted.mp4`
-3. **Adjust Pitch**: 
-   - Use the slider to adjust pitch from -20 to +20 semitones
-   - Use preset buttons for quick adjustments (-1, 0, +1)
-   - Positive values increase pitch, negative values decrease pitch
-4. **Process Video**: Click "Process Video" to start the conversion
-   - If the output file already exists, you'll be prompted to:
-     - Overwrite the existing file
-     - Choose a different filename (auto-generates unique name)
-     - Cancel the operation
-5. **Monitor Progress**: Watch the progress bar and check the log for detailed information
+1. **Select Input Video** — Click "Browse" and select your video file
+2. **Choose Output Location** — Click "Browse" or let it auto-generate a filename
+3. **Adjust Pitch** — Use the slider (-20 to +20 semitones) or the preset −1 / Reset / +1 buttons
+4. **Process Video** — Click "Process Video" to start
+5. **Monitor Progress** — Watch the progress bar and log area for status updates
+
+---
+
+### Option 2 — Web App (Browser)
+
+Runs in your browser. No desktop installation required beyond Python and FFMPEG.
+
+```bash
+# Install Streamlit
+pip install streamlit
+
+# Run the web app
+streamlit run webapp/streamlit_app.py
+```
+
+Then open **http://localhost:8501** in your browser.
+
+**Using the web app:**
+
+1. **Upload Video** — Click the file uploader and select your video
+2. **Adjust Pitch** — Use the slider or the −1 / Reset / +1 buttons
+3. **Process Video** — Click the "Process Video" button
+4. **Download** — A download button appears when processing is complete
+
+#### Deploy to Streamlit Community Cloud (free hosting)
+
+1. Push this repository to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io) and click **New app**
+3. Point it at `webapp/streamlit_app.py`
+4. Streamlit Cloud will automatically install `ffmpeg` from `webapp/packages.txt`
 
 ### Pitch Adjustment Guide
 
@@ -189,25 +225,29 @@ ffmpeg -i input_video -i pitched_audio.wav -c:v copy -c:a aac -b:a 192k -map 0:v
 ## File Structure
 
 ```
-ffmpeg_processing/
-├── video_pitch_adjuster.py    # Main GUI application
-├── run_video_pitch_adjuster.bat # Windows launcher script
-├── README.md                  # This documentation file
-├── requirements.txt           # Dependencies information
-├── images/                    # Screenshots and visual assets
-│   └── screenshot.png         # Application interface screenshot
-├── docs/                      # Documentation and configuration
-│   ├── PROJECT_SUMMARY.md     # Project overview and features
-│   └── config.ini            # Optional configuration settings
-├── scripts/                   # Original shell scripts and references
-│   ├── mixback.sh            # Original script for audio merging
-│   ├── convert2mp3.sh        # Original script for audio extraction
-│   ├── lower_automate.sh     # Original automation script
-│   └── codes.txt             # Original FFMPEG command references
-└── tests/                     # Test scripts and utilities
-    ├── test_pitch_methods.py  # Test FFMPEG pitch methods
-    ├── test_functionality.py  # Test button and file functionality
-    └── test_filename_generation.py # Test dynamic naming logic
+videopitchshifter/
+├── video_pitch_adjuster.py      # Desktop GUI app (tkinter)
+├── run_video_pitch_adjuster.bat # Windows launcher for desktop app
+├── requirements.txt             # Dependency notes
+├── README.md                    # This file
+├── webapp/                      # Browser-based web app (Streamlit)
+│   ├── streamlit_app.py         # Web app entry point
+│   ├── requirements.txt         # Python dependencies (streamlit)
+│   └── packages.txt             # System dependencies for Streamlit Cloud (ffmpeg)
+├── images/                      # Screenshots and visual assets
+│   └── screenshot.png
+├── docs/                        # Documentation and configuration
+│   ├── PROJECT_SUMMARY.md
+│   └── config.ini
+├── scripts/                     # Original shell script references
+│   ├── mixback.sh
+│   ├── convert2mp3.sh
+│   ├── lower_automate.sh
+│   └── codes.txt
+└── tests/                       # Test scripts
+    ├── test_pitch_methods.py
+    ├── test_functionality.py
+    └── test_filename_generation.py
 ```
 
 ## License
