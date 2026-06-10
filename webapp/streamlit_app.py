@@ -119,7 +119,7 @@ if "result_logs" not in st.session_state:
 
 # ── Page config ─────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Video Pitch Adjuster",
+    page_title="Nostra - Video Pitch Shifter",
     page_icon="🎵",
     layout="centered"
 )
