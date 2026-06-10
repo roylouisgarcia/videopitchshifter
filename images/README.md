@@ -5,23 +5,21 @@ This directory contains visual assets for the Video Pitch Adjuster project docum
 ## Files
 
 ### `screenshot.png`
-Main application interface screenshot showing:
-- **Input/Output selection**: File browse dialogs and path display
-- **Pitch adjustment controls**: Slider and preset buttons with #1d2951 theme
-- **Processing interface**: Progress bar and status indicators
-- **Log display**: Real-time processing feedback with color-coded messages
-- **Professional styling**: Modern UI with consistent color scheme
+Main web app interface screenshot showing:
+- **Two-column layout**: Controls on the left, video preview panel on the right
+- **Upload section**: File uploader with size indicator
+- **Pitch controls**: Slider with inline −/+ buttons and live pitch summary
+- **Process button**: Disabled until a file is uploaded
+- **Preview panel**: Prompts user to upload; shows video and before/after tabs after processing
 
 ## Screenshot Guidelines
 
 When updating the screenshot:
 
 1. **Application state**: Show the app in a typical usage state
-2. **File paths**: Use example paths (avoid personal information)
-3. **Pitch setting**: Set to a meaningful value (e.g., +2.5 or -1.5 semitones)
-4. **Log content**: Include some sample processing messages
-5. **Window size**: Use default 800x600 resolution
-6. **File format**: Save as PNG for best quality and transparency support
+2. **Pitch setting**: Set to a meaningful value (e.g., +5 semitones)
+3. **Window size**: Use 1400×900 or wider to show the two-column layout clearly
+4. **File format**: Save as PNG for best quality
 
 ## Usage in Documentation
 
